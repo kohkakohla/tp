@@ -1,5 +1,7 @@
 package seedu.address.storage;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -60,7 +62,7 @@ class JsonAdaptedPerson {
         remark = source.getRemark().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
     /**
