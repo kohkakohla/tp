@@ -5,6 +5,7 @@ import java.util.Set;
 
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Hours;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -24,6 +25,7 @@ public class PersonBuilder {
     private Name name;
     private Phone phone;
     private Email email;
+    private Hours hours;
     private Address address;
     private Set<Tag> tags;
 
@@ -89,8 +91,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Hours} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withHours(String hours) {
+        this.hours = new Hours(hours);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        return new Person(name, phone, email, address, hours, tags);
     }
 
 }
